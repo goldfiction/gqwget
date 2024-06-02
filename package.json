@@ -1,0 +1,14 @@
+{
+  "name": "gqwget",
+  "version": "1.0.0",
+  "description": "a small utility to prove concept of await and basic get url",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -t 20000"
+  },
+  "dependencies": {
+    "needle": "3.3.1"
+  },
+  "author": "glidev5@gmail.com",
+  "license": "MIT"
+}

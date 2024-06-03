@@ -5,21 +5,19 @@
   needle = require("needle");
 
   wget = function(url) {
-    return new Promise(function(resolve) {
+    return new Promise(function(resolve, reject) {
       return needle.get(url, function(error, response) {
         if (!error && response.statusCode === 200) {
           return resolve(response.body);
         } else {
-          throw new Error(error.message);
+          return reject(error.message);
         }
       });
     });
   };
 
   wgetSync = async function(url) {
-    var result;
-    result = (await wget(url));
-    return result;
+    return (await wget(url));
   };
 
   exports.wget = wget;
@@ -27,3 +25,5 @@
   exports.wgetSync = wgetSync;
 
 }).call(this);
+
+//# sourceMappingURL=index.js.map

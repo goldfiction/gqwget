@@ -1,16 +1,15 @@
 needle=require "needle"
 
 wget=(url)->
-  return new Promise (resolve)->
+  return new Promise (resolve,reject)->
     needle.get url,(error, response)->
       if (!error && response.statusCode == 200)
         resolve response.body
       else
-        throw new Error(error.message)
+        reject error.message
 
 wgetSync=(url)->
-  result=await wget url
-  return result
+  return await wget url
 
 exports.wget=wget
 exports.wgetSync=wgetSync
